@@ -1,0 +1,22 @@
+<div class="add-exercise-container">
+  <h2>Add Exercise</h2>
+
+  <!-- Display success message -->
+  <div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
+
+  <!-- Show form only if not submitting -->
+  <form *ngIf="!isSubmitting" (submit)="addExercise()">
+    <div>
+      <label for="exerciseName">Name:</label>
+      <input type="text" id="exerciseName" name="exerciseName" [(ngModel)]="exerciseName" required>
+    </div>
+    <div>
+      <label for="exerciseDescription">Description:</label>
+      <textarea id="exerciseDescription" name="exerciseDescription" [(ngModel)]="exerciseDescription" rows="4" required></textarea>
+    </div>
+    <!-- Add more input fields as needed -->
+    <button type="submit">Add Exercise</button>
+  </form>
+
+  <button class="view-all-btn" (click)="Redirect()" type="button">View All Exercises</button>
+</div>

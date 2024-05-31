@@ -1,0 +1,13 @@
+<!-- src/app/register/register.component.html -->
+<form (ngSubmit)="register()">
+    <input type="text" name="username" [(ngModel)]="username" placeholder="Username" class="form-control mb-3">
+    <input type="email" name="email" [(ngModel)]="email" placeholder="Email" class="form-control mb-3">
+    <input type="text" name="phone" [(ngModel)]="phone" placeholder="Phone" class="form-control mb-3">
+    <input type="text" name="firstName" [(ngModel)]="firstName" placeholder="First Name" class="form-control mb-3">
+    <input type="text" name="lastName" [(ngModel)]="lastName" placeholder="Last Name" class="form-control mb-3">
+    <input type="password" name="password" [(ngModel)]="password" placeholder="Password" class="form-control mb-3">
+    <button type="submit" class="btn btn-primary btn-block">Register</button>
+
+    <!-- Display registration error message if it exists -->
+    <div *ngIf="registrationError" class="text-danger mt-2">{{ registrationError }}</div>
+</form>

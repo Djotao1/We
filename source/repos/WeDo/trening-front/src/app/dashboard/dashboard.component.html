@@ -1,0 +1,97 @@
+<div class="training-table">
+
+    <table>
+      <caption>Training Information</caption>
+      <thead>
+        <tr>
+          <th scope="col">Exercise Type</th>
+          <th scope="col">Duration</th>
+          <th scope="col">Calories</th>
+          <th scope="col">Intensity</th>
+          <th scope="col">Fatigue</th>
+          <th scope="col">Notes</th>
+          <th scope="col">Training Date</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let training of trainings">
+          <td>{{ training.exerciseType }}</td>
+          <td>{{ training.duration }}</td>
+          <td>{{ training.calories }}</td>
+          <td>{{ training.intensity }}</td>
+          <td>{{ training.fatigue }}</td>
+          <td>{{ training.notes }}</td>
+          <td>{{ training.trainingDate | date: 'short' }}</td>
+          <td class="action-buttons">
+            <button class="action-btn" (click)="navigateToExercises(training.id, training.userId)">
+              <i class="fas fa-plus"></i> Add
+            </button>
+            <button class="action-btn" (click)="viewTraining(training.id, training.userId)">
+              <i class="far fa-eye"></i> View
+            </button>
+            <button class="action-btn" (click)="editTraining(training.id)">
+              <i class="far fa-edit"></i> Edit
+            </button>
+            <button class="action-btn" (click)="deleteTraining(training.id)">
+              <i class="far fa-trash-alt"></i> Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+
+  <div class="date-selector">
+    
+    <label for="dateInput">Select a date: </label>
+    <input id="dateInput" type="date" [value]="selectedDate" (change)="onDateChange($event)">
+    <h3>Sorted by week</h3>
+  </div>
+</div>
+
+<div class="training-table">
+  <table>
+    
+    <thead>
+      <tr>
+        <th scope="col">Exercise Type</th>
+        <th scope="col">Duration</th>
+        <th scope="col">Calories</th>
+        <th scope="col">Intensity</th>
+        <th scope="col">Fatigue</th>
+        <th scope="col">Notes</th>
+        <th scope="col">Training Date</th>
+        <th scope="col">Actions</th> <!-- Add Actions column for consistency -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngIf="filteredTrainings.length === 0">
+        <td colspan="8">{{ noTrainingsMessage }}</td>
+      </tr>
+      <tr *ngFor="let training of filteredTrainings">
+        <td>{{ training.exerciseType }}</td>
+        <td>{{ training.duration }}</td>
+        <td>{{ training.calories }}</td>
+        <td>{{ training.intensity }}</td>
+        <td>{{ training.fatigue }}</td>
+        <td>{{ training.notes }}</td>
+        <td>{{ training.trainingDate | date: 'short' }}</td>
+        <td class="action-buttons">
+          <button class="action-btn" (click)="navigateToExercises(training.id, training.userId)">
+            <i class="fas fa-plus"></i> Add
+          </button>
+          <button class="action-btn" (click)="viewTraining(training.id, training.userId)">
+            <i class="far fa-eye"></i> View
+          </button>
+          <button class="action-btn" (click)="editTraining(training.id)">
+            <i class="far fa-edit"></i> Edit
+          </button>
+          <button class="action-btn" (click)="deleteTraining(training.id)">
+            <i class="far fa-trash-alt"></i> Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

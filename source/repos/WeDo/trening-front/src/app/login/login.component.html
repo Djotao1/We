@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="card">
+    <h2>Login</h2>
+    <form (ngSubmit)="login()">
+      <input type="text" name="username" [(ngModel)]="username" placeholder="Username" class="form-control">
+      <input type="password" name="password" [(ngModel)]="password" placeholder="Password">
+      <button type="submit">Login</button>
+      <button type="button" (click)="navigateToRegister()">Register Here</button>
+    </form>
+    <div class="error-message" *ngIf="errorMessage">{{ errorMessage }}</div> <!-- Display error message -->
+  </div>
+</div>

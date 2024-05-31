@@ -1,0 +1,18 @@
+<header>
+    <div class="logo">Your Gym Name</div>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    <nav>
+      <ul>
+        <li *ngIf="isLoggedIn"><a href="dashboard">All Trainings</a></li>
+        <li *ngIf="!isLoggedIn"><a href="login">Login</a></li>
+        <li *ngIf="!isLoggedIn"><a href="register">Register</a></li>
+        <li *ngIf="isLoggedIn"><a href="add-training">Add Training</a></li>
+        <li *ngIf="isLoggedIn"><span>Welcome: {{username}}</span></li>
+        <li *ngIf="isLoggedIn"><a href="#" (click)="logout()">Logout</a></li>
+      </ul>
+    </nav>
+    <label for="nav-toggle" class="nav-toggle-label">
+      <span></span>
+    </label>
+  </header>
+  

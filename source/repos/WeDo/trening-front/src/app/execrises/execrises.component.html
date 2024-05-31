@@ -1,0 +1,15 @@
+<h2>Exercises</h2>
+
+<div *ngIf="exercises.length === 0">
+  <p>No exercises found.</p>
+</div>
+
+<div *ngFor="let exercise of exercises">
+  <div>
+    
+    <strong>Name of the exercise:</strong> {{ exercise.name }}<br>
+    <strong>Description:</strong> {{ exercise.description }}<br>
+    
+  </div>
+  <hr>
+</div>

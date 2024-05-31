@@ -1,0 +1,56 @@
+<form [formGroup]="trainingForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="exerciseType">Exercise Type:</label>
+    <input type="text" id="exerciseType" formControlName="exerciseType" required>
+    <div *ngIf="trainingForm.get('exerciseType')?.invalid && trainingForm.get('exerciseType')?.touched">
+      <div *ngIf="trainingForm.get('exerciseType')?.errors?.['required']">Exercise Type is required</div>
+    </div>
+  </div>
+  <div>
+    <label for="dateTime">Training Date & Time:</label>
+    <input type="datetime-local" id="dateTime" formControlName="dateTime" required>
+    <div *ngIf="trainingForm.get('dateTime')?.invalid && trainingForm.get('dateTime')?.touched">
+      <div *ngIf="trainingForm.get('dateTime')?.errors?.['required']">Training Date & Time is required</div>
+    </div>
+  </div>
+  <div>
+    <label for="duration">Duration (minutes):</label>
+    <input type="number" id="duration" formControlName="duration" required>
+    <div *ngIf="trainingForm.get('duration')?.invalid && trainingForm.get('duration')?.touched">
+      <div *ngIf="trainingForm.get('duration')?.errors?.['required']">Duration is required</div>
+      <div *ngIf="trainingForm.get('duration')?.errors?.['durationInvalid']">Duration must be greater than 1</div>
+    </div>
+  </div>
+  <div>
+    <label for="calories">Calories:</label>
+    <input type="number" id="calories" formControlName="calories" required>
+    <div *ngIf="trainingForm.get('calories')?.invalid && trainingForm.get('calories')?.touched">
+      <div *ngIf="trainingForm.get('calories')?.errors?.['required']">Calories is required</div>
+    </div>
+  </div>
+  <div>
+    <label for="intensity">Intensity:</label>
+    <input type="number" id="intensity" formControlName="intensity" required>
+    <div *ngIf="trainingForm.get('intensity')?.invalid && trainingForm.get('intensity')?.touched">
+      <div *ngIf="trainingForm.get('intensity')?.errors?.['required']">Intensity is required</div>
+      <div *ngIf="trainingForm.get('intensity')?.errors?.['intensityRange']">Intensity must be between 0 and 10</div>
+    </div>
+  </div>
+ 
+<div>
+  <label for="fatigue">Fatigue:</label>
+  <input type="number" id="fatigue" formControlName="fatigue" required>
+  <div *ngIf="trainingForm.get('fatigue')?.invalid && trainingForm.get('fatigue')?.touched">
+    <div *ngIf="trainingForm.get('fatigue')?.errors?.['required']">Fatigue is required</div>
+    <div *ngIf="trainingForm.get('fatigue')?.errors?.['fatigueRange']">Fatigue must be between 0 and 10</div>
+  </div>
+</div>
+<div>
+    <label for="notes">Notes:</label>
+    <textarea id="notes" formControlName="notes"></textarea>
+  </div>
+  <button type="submit">Add Training</button>
+  
+</form>
+<div *ngIf="successMessage">{{ successMessage }}</div>
+

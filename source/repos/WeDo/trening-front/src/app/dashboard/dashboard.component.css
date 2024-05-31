@@ -1,0 +1,75 @@
+.training-table {
+  margin-bottom: 5rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+caption {
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+thead th,
+tbody td {
+  padding: 10px;
+  text-align: center;
+}
+
+thead th {
+  background-color: #f4f4f4;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.date-selector {
+  margin-top: 20px;
+}
+
+.date-selector label {
+  margin-right: 10px;
+}
+
+.add-exercise-btn {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.add-exercise-btn:hover {
+  background-color: #45a049;
+}
+
+.add-exercise-btn i {
+  margin-right: 5px;
+}
+
+/* FontAwesome icons */
+.fa-plus {
+  font-size: 14px;
+}
+.action-buttons {
+  white-space: nowrap; /* Ensure buttons stay in one line */
+}
+
+.action-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: #555; /* Adjust color as needed */
+  margin-right: 10px; /* Add some spacing between buttons */
+}
+
+.action-btn i {
+  margin-right: 5px; /* Add some spacing between icon and text */
+}
